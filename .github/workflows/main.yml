@@ -1,0 +1,25 @@
+on: [push]
+
+jobs:
+  gist-sync:
+    name: gist-sync
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: popsiclestick/gist-sync-action@v1.2.0
+        id: sync-deployment
+        with:
+          auth: ${{ secrets.GIST_TOKEN }}
+          gist_url: https://gist.github.com/dalethestirling/bc9bc22f8acb855187dec0cad17f7f58
+          gist_title: Pi-hole-kube
+          gist_description: Kubernetes deployment files for pi-hole.net
+          github_file: deployment.yaml
+      - uses: popsiclestick/gist-sync-action@v1.2.0
+        id: sync-service
+        with:
+          auth: ${{ secrets.GIST_TOKEN }}
+          gist_url: https://gist.github.com/dalethestirling/bc9bc22f8acb855187dec0cad17f7f58
+          gist_title: Pi-hole-kube
+          gist_description: Kubernetes deployment files for pi-hole.net
+          github_file: service.yaml
