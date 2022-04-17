@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: pihole
+  name: pihole-tcp
+  namespace: default
+spec:
+  ports:
+  - port: 80
+    nodePort: 30480
+    name: port80
+    protocol: TCP
+  - port: 443
+    nodePort: 30443
+    name: port443
+    protocol: TCP
+  - port: 53
+    targetPort: 53
+    protocol: TCP
+    name: port53
+  selector:
+    app: pihole
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: pihole
+  name: pihole-udp
+  namespace: default
+spec:
+  ports:
+  - port: 53
+    nodePort: 53
+    protocol: UDP
+    name: port53-udp
+  - port: 67
+    targetPort: 67
+    protocol: UDP
+    name: port67-udp
+  selector:
+    app: pihole
+  type: LoadBalancer
