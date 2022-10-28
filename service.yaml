@@ -4,7 +4,7 @@ metadata:
   labels:
     app: pihole
   name: pihole-tcp
-  namespace: default
+  namespace: pi-hole
 spec:
   ports:
   - port: 80
@@ -29,7 +29,7 @@ metadata:
   labels:
     app: pihole
   name: pihole-udp
-  namespace: default
+  namespace: pi-hole
 spec:
   ports:
   - port: 53

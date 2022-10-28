@@ -4,7 +4,7 @@ metadata:
   labels:
     app: pihole
   name: pihole
-  namespace: default
+  namespace: pi-hole
 spec:
   selector:
     matchLabels:
