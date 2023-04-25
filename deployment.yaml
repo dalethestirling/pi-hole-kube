@@ -16,7 +16,7 @@ spec:
     spec:
       hostNetwork: true
       containers:
-        - image: pihole/pihole:2022.12.1
+        - image: pihole/pihole:2023.03.1
           imagePullPolicy: IfNotPresent
           name: pihole
           env:
